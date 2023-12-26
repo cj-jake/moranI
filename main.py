@@ -3,7 +3,7 @@ import pandas as pd
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QFileDialog, QTableWidget, \
     QTableWidgetItem, QWidget, QMessageBox, QHBoxLayout, QDesktopWidget, QDialog, QAction
 from windows.ColumnOperationsDialog import ColumnOperationsDialog
-
+from windows.MoranIAnalysis import MoranIAnalysis
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -54,7 +54,7 @@ class MainWindow(QMainWindow):
         models = ["MoranI", "LISA", "TMoranI", "TLISA","STMoranI", "STLISA"]
 
         self.analysis_window_mapping = {
-
+            "MoranI":MoranIAnalysis
         }
 
         for model in models:
@@ -110,7 +110,6 @@ class MainWindow(QMainWindow):
                 QMessageBox.warning(self, "警告", f"数据中包含相同字段列: {', '.join(common_columns)}")
             else:
                 self.data = pd.concat([self.data, df], axis=1)
-                QMessageBox.information(self, "提示", "数据上传成功！")
 
             self.displayData(self.data)
 

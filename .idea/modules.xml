@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/KNN-MoranI.iml" filepath="$PROJECT_DIR$/.idea/KNN-MoranI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MoranI.iml" filepath="$PROJECT_DIR$/.idea/MoranI.iml" />
     </modules>
   </component>
 </project>

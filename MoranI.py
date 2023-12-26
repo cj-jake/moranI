@@ -1,16 +1,23 @@
 import openpyxl
 import os
+import tkinter as tk
+from tkinter import filedialog
 from openpyxl.styles import PatternFill
-from KnnImplementSpatialWeightMatrix import *
-from calculateMoranI import *
+from utils.KnnImplementSpatialWeightMatrix import *
+from utils.calculateMoranI import *
 
 
 def knnMoran():
-    choice_data_column_list_in = []
-    # 读入文件
-    path = r"/"
-    os.chdir(path)  # 修改工作路径
-    wb = openpyxl.load_workbook('示例数据.xlsx')
+    root = tk.Tk()
+    root.withdraw()  # 隐藏根窗口
+
+    file_path = filedialog.askopenfilename(filetypes=[("Excel Files", "*.xlsx; *.xls")])  # 打开文件对话框并选择文件
+    print("选择的文件路径是:", file_path)
+
+    # 在这里可以使用 file_path 变量，加载所选择的 Excel 文件（使用 openpyxl 等库进行加载）
+
+    root.destroy()  # 销毁根窗口
+    wb = openpyxl.load_workbook(file_path)
     ws_list = wb.sheetnames
     yellow_fill = PatternFill(patternType='solid', fgColor='FFFF00')  # 黄
     green_fill = PatternFill(patternType='solid', fgColor='90EE90')  # 淡绿色
@@ -44,7 +51,7 @@ def knnMoran():
         # choice_weight_column_list = choice_data_column.split(" ")
         choice_data_column_list_in = [6]
         choice_weight_column_list_in = [2, 3]
-        f = open(r"/\空间权重矩阵.txt", "w+")
+        # f = open(r"/\空间权重矩阵.txt", "w+")
         data = []
         weight = []
         weight_column_list = []
@@ -68,12 +75,12 @@ def knnMoran():
                 # 计算空间权重矩阵
                 w = knn(weight, method=n)
                 # 将空间权重矩阵写入txt文件
-                f.write(f"{ws1.cell(1, choice_data_column).value}的空间权重矩阵\n")
-                for i in range(max_rows - 1):
-                    f.write("[")
-                    for j in range(max_rows - 1):
-                        f.write(str(w[i][j]) + " ")
-                    f.write("]\n")
+                # f.write(f"{ws1.cell(1, choice_data_column).value}的空间权重矩阵\n")
+                # for i in range(max_rows - 1):
+                #     # f.write("[")
+                #     # for j in range(max_rows - 1):
+                #     #     f.write(str(w[i][j]) + " ")
+                #     # f.write("]\n")
                 print(f"\n输入属性数据为：{ws1.cell(1, choice_data_column).value}")
                 for weight_column in weight_column_list:
                     print(f"输入权重数据为：{ws1.cell(1, weight_column).value}")
