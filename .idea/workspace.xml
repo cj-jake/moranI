@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c987840c-b817-44e2-89d0-e71e92a459b3" name="Changes" comment="完成时间和时空莫兰指数的计算">
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="c987840c-b817-44e2-89d0-e71e92a459b3" name="Changes" comment="添加保存数据按钮">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoranI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/calculateMoranI.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/calculateMoranI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/ColumnOperationsDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/windows/ColumnOperationsDialog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/MoranIAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/windows/MoranIAnalysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/STMoranIAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/windows/STMoranIAnalysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/TMoranIAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/windows/TMoranIAnalysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +70,28 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="41" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MoranI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/windows" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/windows/41.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="KnnImplementSpatialWeightMatrix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MoranI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -91,29 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="MoranI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MoranI" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MoranI.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MoranIAnalysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="STMoranIAnalysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MoranI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -126,7 +127,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/windows/MoranIAnalysis.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/windows/STMoranIAnalysis.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -182,10 +183,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.41" />
+        <item itemvalue="Python.STMoranIAnalysis" />
         <item itemvalue="Python.KnnImplementSpatialWeightMatrix" />
         <item itemvalue="Python.Sava3D" />
-        <item itemvalue="Python.MoranI" />
-        <item itemvalue="Python.MoranIAnalysis" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +207,7 @@
       <workItem from="1703774158843" duration="8429000" />
       <workItem from="1704165225621" duration="140000" />
       <workItem from="1704165384487" duration="139000" />
-      <workItem from="1704165618939" duration="10391000" />
+      <workItem from="1704165618939" duration="22160000" />
     </task>
     <task id="LOCAL-00001" summary="增加局部莫兰指数z分数的可视化">
       <option name="closed" value="true" />
@@ -224,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704184590644</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="添加保存数据按钮">
+      <option name="closed" value="true" />
+      <created>1704185918178</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704185918178</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +243,8 @@
     <MESSAGE value="删除计算结果" />
     <MESSAGE value="增加局部莫兰指数z分数的可视化" />
     <MESSAGE value="完成时间和时空莫兰指数的计算" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成时间和时空莫兰指数的计算" />
+    <MESSAGE value="添加保存数据按钮" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加保存数据按钮" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -255,10 +265,12 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MoranI$main.coverage" NAME="main Coverage Results" MODIFIED="1704185776901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MoranI$main.coverage" NAME="main Coverage Results" MODIFIED="1704201346695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MoranI$Sava3D.coverage" NAME="Sava3D Coverage Results" MODIFIED="1703588567945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/MoranI$KnnImplementSpatialWeightMatrix.coverage" NAME="KnnImplementSpatialWeightMatrix Coverage Results" MODIFIED="1704178597848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MoranI$41.coverage" NAME="41 Coverage Results" MODIFIED="1704200729862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/windows" />
     <SUITE FILE_PATH="coverage/MoranI$MoranI.coverage" NAME="MoranI Coverage Results" MODIFIED="1703577628258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MoranI$MoranIAnalysis.coverage" NAME="MoranIAnalysis Coverage Results" MODIFIED="1703681060249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/windows" />
+    <SUITE FILE_PATH="coverage/MoranI$STMoranIAnalysis.coverage" NAME="STMoranIAnalysis Coverage Results" MODIFIED="1704189088505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/windows" />
   </component>
 </project>

@@ -122,11 +122,11 @@ def TMoranI(W,X):
     ZIi = np.array(ZIi)
 
     return {
-        '空间全局moran指数': I[0, 0],
-        '正太分布假设下检验数空间全局moran指数z分数': ZI_N[0, 0],
-        '随机分布假设下检验数空间全局moran指数z分数': ZI_R[0, 0],
-        '空间局部moran指数':  Ii,
-        '空间局部检z分数':  ZIi,
+        '时间全局moran指数': I[0, 0],
+        '正太分布假设下检验数时间全局moran指数z分数': ZI_N[0, 0],
+        '随机分布假设下检验数时间全局moran指数z分数': ZI_R[0, 0],
+        '时间局部moran指数':  Ii,
+        '时间局部检z分数':  ZIi,
     }
 def STMoranI(W,X):
 
@@ -186,11 +186,11 @@ def STMoranI(W,X):
     ZIi = np.array(ZIi)
 
     return {
-        '空间全局moran指数': I[0, 0],
-        '正太分布假设下检验数空间全局moran指数z分数': ZI_N[0, 0],
-        '随机分布假设下检验数空间全局moran指数z分数': ZI_R[0, 0],
-        '空间局部moran指数':  Ii,
-        '空间局部检z分数':  ZIi,
+        '时空全局moran指数': I[0, 0],
+        '正太分布假设下检验数空间时空moran指数z分数': ZI_N[0, 0],
+        '随机分布假设下检验数空间时空moran指数z分数': ZI_R[0, 0],
+        '时空局部moran指数':  Ii,
+        '时空局部检z分数':  ZIi,
     }
 if __name__ == "__main__":
     w = [

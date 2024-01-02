@@ -69,7 +69,7 @@ class TMoranIAnalysis(QDialog):
 
         scaler = MinMaxScaler(feature_range=(0, 1))
         scaled_values = scaler.fit_transform(data)
-        moran_result = MoranI(w, scaled_values)
+        moran_result = TMoranI(w, scaled_values)
         # 格式化显示结果
         formatted_result = ""
         for key, value in moran_result.items():
@@ -83,7 +83,7 @@ class TMoranIAnalysis(QDialog):
         # 将格式化的结果设置到文本框中
         self.result_text.setPlainText(formatted_result)
         # 提取局部检验数数据
-        ZIi_data = moran_result['空间局部检z分数']
+        ZIi_data = moran_result['时间局部检z分数']
 
         # 将数据分为 x、y、z 轴的数据
         x = range(len(ZIi_data))

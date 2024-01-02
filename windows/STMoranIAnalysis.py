@@ -87,7 +87,7 @@ class STMoranIAnalysis(QDialog):
         # 计算 Moran 指数
         data = np.array(value)
         data = data / data.sum(axis=0)  # 数据归一化
-        moran_result = MoranI(w, data)
+        moran_result = STMoranI(w, data)
         # 格式化显示结果
         formatted_result = ""
         for key, value in moran_result.items():
@@ -101,7 +101,7 @@ class STMoranIAnalysis(QDialog):
         # 将格式化的结果设置到文本框中
         self.result_text.setPlainText(formatted_result)
         # 提取局部检验数数据
-        ZIi_data = moran_result['空间局部检z分数']
+        ZIi_data = moran_result['时空局部检z分数']
 
         # 将数据分为 x、y、z 轴的数据
         x = range(len(ZIi_data))

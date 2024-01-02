@@ -4,7 +4,6 @@ from datetime import datetime
 
 import imageio
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QComboBox, QPushButton, QTextEdit, QDesktopWidget
-from sklearn.preprocessing import MinMaxScaler
 
 from utils.KnnImplementSpatialWeightMatrix import *
 from utils.calculateMoranI import *
@@ -15,7 +14,6 @@ class MoranIAnalysis(QDialog):
     def __init__(self, data, parent=None):
         super().__init__(parent)
         self.data = data
-
         self.initUI()
 
     def initUI(self):
