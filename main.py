@@ -33,9 +33,9 @@ class MainWindow(QMainWindow):
         self.clear_button.clicked.connect(self.clearData)
         button_layout1.addWidget(self.clear_button)
 
-        # self.save_button = QPushButton("保存数据", self)
-        # self.save_button.clicked.connect(self.saveData)
-        # button_layout.addWidget(self.save_button)
+        self.save_button = QPushButton("保存数据", self)
+        self.save_button.clicked.connect(self.saveData)
+        button_layout1.addWidget(self.save_button)
 
         # 将水平布局添加到垂直布局中
         layout.addLayout(button_layout1)
@@ -146,11 +146,11 @@ class MainWindow(QMainWindow):
 
     def saveData(self):
         if not self.data.empty:
-            for column in self.data.columns:
-                data = self.data[column].tolist()
-                data_path = f"{column}.csv"
-                with open(data_path, 'w', newline='') as file:
-                    file.write("\n".join([str(item) for item in data]))
+            #Sava data 数据 选择保存路径设置保存文件名称 格式为.csv
+            file_dialog = QFileDialog(self)
+            file_path, _ = file_dialog.getSaveFileName(self, "保存数据", ".", "CSV Files (*.csv);;All Files (*)")
+            if file_path:
+                self.data.to_csv(file_path, index=False)
             QMessageBox.information(self, "提示", "数据已保存到本地！")
         else:
             QMessageBox.warning(self, "提示", "请先上传数据！")
