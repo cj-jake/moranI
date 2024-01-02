@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout,
     QTableWidgetItem, QWidget, QMessageBox, QHBoxLayout, QDesktopWidget, QDialog, QAction
 from windows.ColumnOperationsDialog import ColumnOperationsDialog
 from windows.MoranIAnalysis import MoranIAnalysis
+from windows.TMoranIAnalysis import TMoranIAnalysis
+from windows.STMoranIAnalysis import STMoranIAnalysis
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -51,10 +53,12 @@ class MainWindow(QMainWindow):
         # 创建一个水平布局来放置上传、清空和保存按钮
         button_layout2 = QHBoxLayout()
 
-        models = ["MoranI", "LISA", "TMoranI", "TLISA","STMoranI", "STLISA"]
+        models = ["SMoranI_LISA",  "TMoranI_LISA","STMoranI_LISA"]
 
         self.analysis_window_mapping = {
-            "MoranI":MoranIAnalysis
+            "SMoranI_LISA": MoranIAnalysis,
+            "TMoranI_LISA": TMoranIAnalysis,
+            "STMoranI_LISA": STMoranIAnalysis
         }
 
         for model in models:

@@ -1,17 +1,20 @@
+"""
+时空莫兰指数
+"""
+
 import os
-import warnings
 from datetime import datetime
 
 import imageio
-from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QComboBox, QPushButton, QTextEdit, QDesktopWidget
-from sklearn.preprocessing import MinMaxScaler
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QComboBox, QPushButton, QTextEdit, QDesktopWidget, \
+    QHBoxLayout, QSpinBox, QLineEdit
 
 from utils.KnnImplementSpatialWeightMatrix import *
 from utils.calculateMoranI import *
 
-warnings.filterwarnings("ignore", category=UserWarning)
 
-class MoranIAnalysis(QDialog):
+class STMoranIAnalysis(QDialog):
     def __init__(self, data, parent=None):
         super().__init__(parent)
         self.data = data
@@ -25,10 +28,9 @@ class MoranIAnalysis(QDialog):
         layout = QVBoxLayout()
 
         # First label and dropdown
-        label_1 = QLabel("选择要计算 Moran 指数的数据列：", self)
+        label_1 = QLabel("选择要计算 时空Moran 指数的数据列：", self)
         self.column_dropdown = QComboBox(self)
         self.column_dropdown.addItems(self.data.columns)
-
         layout.addWidget(label_1)
         layout.addWidget(self.column_dropdown)
 
@@ -46,6 +48,20 @@ class MoranIAnalysis(QDialog):
         layout.addWidget(label_3)
         layout.addWidget(self.third_dropdown)
 
+        label_4 = QLabel("选择时间数据：", self)
+        self.fourth_dropdown = QComboBox(self)
+        self.fourth_dropdown.addItems(self.data.columns)  # 使用和第一个下拉框相同的数据
+        layout.addWidget(label_4)
+        layout.addWidget(self.fourth_dropdown)
+
+        hbox = QHBoxLayout()
+        score_label = QLabel("输入时间阈值（天）：", self)
+        self.score_input = QLineEdit(self)
+        self.score_input.setText("1")
+        hbox.addWidget(score_label)
+        hbox.addWidget(self.score_input)
+        layout.addLayout(hbox)
+
         self.result_text = QTextEdit(self)
         layout.addWidget(self.result_text)
 
@@ -54,16 +70,20 @@ class MoranIAnalysis(QDialog):
         layout.addWidget(self.calculate_button)
 
         self.setLayout(layout)
-        self.setWindowTitle("MoranIAnalysis")
+        self.setWindowTitle("STMoranIAnalysis")
 
     def calculateMoranI(self):
 
         valueName = self.column_dropdown.currentText()
         xName = self.second_dropdown.currentText()
         yName=self.third_dropdown.currentText()
+        tName=self.fourth_dropdown.currentText()
         value=self.data[valueName]
-        coordinates = list(zip(self.data[xName], self.data[yName]))
-        w = knn(coordinates, method=2)
+        coordinates = list(zip(self.data[xName], self.data[yName],self.data[tName]))
+        #获得时间阈值
+        input_time_text = self.score_input.text()
+        time_Threshold =float(input_time_text)
+        w = knnST(coordinates,3, 2, time_Threshold)
         # 计算 Moran 指数
         data = np.array(value)
         data = data / data.sum(axis=0)  # 数据归一化
@@ -97,7 +117,7 @@ class MoranIAnalysis(QDialog):
         ax.scatter(x, y, z)
 
         # Set titles and labels
-        ax.set_title('3D local S z-score')
+        ax.set_title('3D local ST z-score')
         ax.set_xlabel('X-axis')
         ax.set_ylabel('Y-axis')
         ax.set_zlabel('Z-axis')
@@ -125,7 +145,6 @@ class MoranIAnalysis(QDialog):
 
         # Save frames as GIF using imageio
         imageio.mimsave(filename, frames, duration=50)  # Set the duration in milliseconds per frame
-
 
 
 

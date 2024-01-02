@@ -1,17 +1,17 @@
 import os
-import warnings
 from datetime import datetime
 
 import imageio
+import matplotlib.pyplot as plt
+import pandas as pd
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QComboBox, QPushButton, QTextEdit, QDesktopWidget
 from sklearn.preprocessing import MinMaxScaler
 
 from utils.KnnImplementSpatialWeightMatrix import *
 from utils.calculateMoranI import *
 
-warnings.filterwarnings("ignore", category=UserWarning)
 
-class MoranIAnalysis(QDialog):
+class TMoranIAnalysis(QDialog):
     def __init__(self, data, parent=None):
         super().__init__(parent)
         self.data = data
@@ -25,7 +25,7 @@ class MoranIAnalysis(QDialog):
         layout = QVBoxLayout()
 
         # First label and dropdown
-        label_1 = QLabel("选择要计算 Moran 指数的数据列：", self)
+        label_1 = QLabel("选择要时间数据：", self)
         self.column_dropdown = QComboBox(self)
         self.column_dropdown.addItems(self.data.columns)
 
@@ -54,7 +54,7 @@ class MoranIAnalysis(QDialog):
         layout.addWidget(self.calculate_button)
 
         self.setLayout(layout)
-        self.setWindowTitle("MoranIAnalysis")
+        self.setWindowTitle("TMoranIAnalysis")
 
     def calculateMoranI(self):
 
@@ -65,9 +65,11 @@ class MoranIAnalysis(QDialog):
         coordinates = list(zip(self.data[xName], self.data[yName]))
         w = knn(coordinates, method=2)
         # 计算 Moran 指数
-        data = np.array(value)
-        data = data / data.sum(axis=0)  # 数据归一化
-        moran_result = MoranI(w, data)
+        data = pd.DataFrame(value)
+
+        scaler = MinMaxScaler(feature_range=(0, 1))
+        scaled_values = scaler.fit_transform(data)
+        moran_result = MoranI(w, scaled_values)
         # 格式化显示结果
         formatted_result = ""
         for key, value in moran_result.items():
@@ -97,7 +99,7 @@ class MoranIAnalysis(QDialog):
         ax.scatter(x, y, z)
 
         # Set titles and labels
-        ax.set_title('3D local S z-score')
+        ax.set_title('3D local T z-score')
         ax.set_xlabel('X-axis')
         ax.set_ylabel('Y-axis')
         ax.set_zlabel('Z-axis')

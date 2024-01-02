@@ -1,7 +1,6 @@
-import random
-
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.neighbors import NearestNeighbors
 
 
 def data_set():
@@ -85,7 +84,58 @@ def knn(tran_data, k=3, method=1):
             w[i][n] = 1
     return w
 
-
+def knnST(tran_data, k=3, method=1,time_Threshold=1.0):
+    """
+    knn算法得到空间权重矩阵，可选空间位置或属性值作为计算指标
+    :param tran_data: 需分类数据，列表  时间
+    :param k: 最大邻接数
+    :param method: 分类指标，1为一维指标，2为二维指标
+    :return:空间权重矩阵
+    """
+    tran_data = np.array(tran_data)
+    # 获取数据组数
+    m = tran_data.shape[0]
+    # print(tran_data)
+    # 初始化距离矩阵
+    distance_matrix = [[0 for i in range(m)] for j in range(m)]
+    add_distance = distance_matrix
+    # 距离矩阵计算
+    if method == 2:
+        for i in range(m):
+            for j in range(m):
+                # 空间坐标距离
+                spatial_dist = np.sqrt(
+                    (tran_data[i][0] - tran_data[j][0]) ** 2 + (tran_data[i][1] - tran_data[j][1]) ** 2)
+                # 时间差异
+                time_diff = abs(tran_data[i][2] - tran_data[j][2])
+                time_diff_day=time_diff.days
+                # 合并空间坐标距离和时间差异，加权求和（可以根据需求调整权重）
+                combined_distance = (spatial_dist ** 2 + (time_diff_day/ time_Threshold) ** 2) ** 0.5
+                distance_matrix[i][j] = combined_distance
+    if method == 1:
+        for i in range(m):
+            for j in range(m):
+                # 对应特征值相减
+                distance_matrix[i][j] = abs(tran_data[i] - tran_data[j])
+    # 去除自我邻接距离
+    for i in range(m):
+        distance_matrix[i][i] = np.inf
+    # 根据距离升序排序
+    tem_index = np.argsort(distance_matrix)
+    # 初始化排序结果索引
+    index = [0 for i in range(m)]
+    # 根据k值切片将每个元素邻接的元素索引提取出来
+    for i in range(m):
+        index[i] = tem_index[i][0:k]
+    # 构建空间权重矩阵
+    w = [[0 for i in range(m)] for j in range(m)]
+    index = np.array(index)
+    w = np.array(w)
+    for i in range(m):
+        for j in range(k):
+            n = index[i][j]
+            w[i][n] = 1
+    return w
 if __name__ == '__main__':
     tran_data, labels = data_set()
     # 一维数据验证
@@ -95,4 +145,8 @@ if __name__ == '__main__':
     w = knn(tran_data, method=2)
     for i in w:
         print(i)
-    data_show(data_set(), w)
+    w2=knnST(tran_data,method=2,time_Threshold=1)
+    print("w2*********")
+    for i in w2:
+        print(i)
+    # data_show(data_set(), w)

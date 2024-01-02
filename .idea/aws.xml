@@ -11,7 +11,11 @@
     <option name="recentlyUsedRegions">
       <list>
         <option value="us-east-1" />
+        <option value="us-west-1" />
       </list>
     </option>
+  </component>
+  <component name="explorerToolWindow">
+    <option name="selectedTab" value="Explorer" />
   </component>
 </project>
