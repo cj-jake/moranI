@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c987840c-b817-44e2-89d0-e71e92a459b3" name="Changes" comment="添加修改数据">
+    <list default="true" id="c987840c-b817-44e2-89d0-e71e92a459b3" name="Changes" comment="删除main.initUI的注释">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +215,7 @@
       <workItem from="1703774158843" duration="8429000" />
       <workItem from="1704165225621" duration="140000" />
       <workItem from="1704165384487" duration="139000" />
-      <workItem from="1704165618939" duration="23067000" />
+      <workItem from="1704165618939" duration="23748000" />
     </task>
     <task id="LOCAL-00001" summary="增加局部莫兰指数z分数的可视化">
       <option name="closed" value="true" />
@@ -250,11 +249,80 @@
       <option name="project" value="LOCAL" />
       <updated>1704201688472</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="删除main.initUI的注释">
+      <option name="closed" value="true" />
+      <created>1704242499252</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704242499252</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="删除计算结果" />
@@ -262,7 +330,8 @@
     <MESSAGE value="完成时间和时空莫兰指数的计算" />
     <MESSAGE value="添加保存数据按钮" />
     <MESSAGE value="添加修改数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加修改数据" />
+    <MESSAGE value="删除main.initUI的注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除main.initUI的注释" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
