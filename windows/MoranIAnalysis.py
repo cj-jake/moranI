@@ -5,7 +5,7 @@ from datetime import datetime
 import imageio
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QComboBox, QPushButton, QTextEdit, QDesktopWidget
 
-from utils.KnnImplementSpatialWeightMatrix import *
+from utils.ImplementSpatialWeightMatrix import *
 from utils.calculateMoranI import *
 
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -82,25 +82,24 @@ class MoranIAnalysis(QDialog):
         ZIi_data = moran_result['空间局部检z分数']
 
         # 将数据分为 x、y、z 轴的数据
-        x = range(len(ZIi_data))
-        y = range(len(ZIi_data))
-        z = ZIi_data
-
+        x = list(self.data[xName])
+        y = list(self.data[yName])
+        z = value
+        dataValue = ZIi_data
         # 创建 3D 图形对象
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
 
-        # Plot the 3D surface
-        # ax.plot_surface(x, y, z, cmap='viridis')
-        ax.scatter(x, y, z)
+        # 绘制散点图
+        ax.scatter(x, y, z, c=dataValue, cmap='viridis')
 
-        # Set titles and labels
+        # 设计标题
         ax.set_title('3D local S z-score')
         ax.set_xlabel('X-axis')
         ax.set_ylabel('Y-axis')
         ax.set_zlabel('Z-axis')
         plt.show(block=False)
-        # Generate and save animation as GIF using imageio
+        # 保存
         current_time = datetime.now()
         year = current_time.year
         month = current_time.month
@@ -113,7 +112,7 @@ class MoranIAnalysis(QDialog):
         file_path=os.path.join(current_directory,date_string)
         if not os.path.exists(file_path):
             os.makedirs(file_path)
-        filename = os.path.join(file_path,f"{hour}_{minute}_{second}.gif")
+        filename = os.path.join(file_path,f"{hour}_{minute}_{second}MoranI.gif")
         frames = []
         for i in range(0, 360, 2):
             ax.view_init(elev=i, azim=i)
