@@ -44,17 +44,11 @@ class MainWindow(QMainWindow):
         # 将表格添加到布局中，使其在界面上可见
         layout.addWidget(self.table)
 
-        # self.column_operations_button = QPushButton("数据列操作", self)
-        # self.column_operations_button.clicked.connect(self.showColumnOperationsDialog)
-        # layout.addWidget(self.column_operations_button)
 
         # 创建水平布局和两个按钮
         hbox = QHBoxLayout()
 
-        # # 第一个按钮 - 数据修改
-        # self.data_modify_button = QPushButton("数据修改", self)
-        # self.data_modify_button.clicked.connect(self.showDataModifyDialog)
-        # hbox.addWidget(self.data_modify_button)
+
 
         # 第二个按钮 - 数据列操作
         self.column_operations_button = QPushButton("数据列操作", self)
