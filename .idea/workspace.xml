@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c987840c-b817-44e2-89d0-e71e92a459b3" name="Changes" comment="删除main.initUI的注释">
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shanghai_covid_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/KnnImplementSpatialWeightMatrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ImplementSpatialWeightMatrix.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/windows/MoranIAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/windows/MoranIAnalysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/STMoranIAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/windows/STMoranIAnalysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/TMoranIAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/windows/TMoranIAnalysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +59,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/code/python/others/wrBook/MoranI/data&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/code/python/others/wrBook/MoranI/windows&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -75,7 +70,6 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\code\python\others\wrBook\MoranI\data" />
       <recent name="E:\code\python\others\wrBook\MoranI\windows" />
       <recent name="E:\code\python\others\wrBook\MoranI" />
     </key>
@@ -107,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ImplementSpatialWeightMatrix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="KnnImplementSpatialWeightMatrix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MoranI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -120,7 +114,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\code\python\others\wrBook\MoranI\utils\ImplementSpatialWeightMatrix.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/KnnImplementSpatialWeightMatrix.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -200,6 +194,7 @@
         <item itemvalue="Python.main" />
         <item itemvalue="Python.41" />
         <item itemvalue="Python.STMoranIAnalysis" />
+        <item itemvalue="Python.KnnImplementSpatialWeightMatrix" />
         <item itemvalue="Python.Sava3D" />
       </list>
     </recent_temporary>
@@ -222,11 +217,6 @@
       <workItem from="1704165225621" duration="140000" />
       <workItem from="1704165384487" duration="139000" />
       <workItem from="1704165618939" duration="23748000" />
-      <workItem from="1704369339231" duration="3636000" />
-      <workItem from="1704550554637" duration="720000" />
-      <workItem from="1704551296782" duration="1000" />
-      <workItem from="1704551309681" duration="186000" />
-      <workItem from="1704551507492" duration="5938000" />
     </task>
     <task id="LOCAL-00001" summary="增加局部莫兰指数z分数的可视化">
       <option name="closed" value="true" />
@@ -342,7 +332,8 @@
     <MESSAGE value="添加保存数据按钮" />
     <MESSAGE value="添加修改数据" />
     <MESSAGE value="删除main.initUI的注释" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除main.initUI的注释" />
+    <MESSAGE value="修改数据展示" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改数据展示" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

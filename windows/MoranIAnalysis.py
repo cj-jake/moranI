@@ -120,7 +120,6 @@ class MoranIAnalysis(QDialog):
             frame = np.array(fig.canvas.renderer.buffer_rgba())
             frames.append(frame)
 
-        # Save frames as GIF using imageio
         imageio.mimsave(filename, frames, duration=50)  # Set the duration in milliseconds per frame
 
 
