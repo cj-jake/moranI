@@ -83,7 +83,7 @@ class STMoranIAnalysis(QDialog):
         #获得时间阈值
         input_time_text = self.score_input.text()
         time_Threshold =float(input_time_text)
-        w = knnST(coordinates,3, 2, time_Threshold)
+        w = STBuildWeightMatrix(coordinates, 3, 2, time_Threshold)
         # 计算 Moran 指数
         data = np.array(value)
         data = data / data.sum(axis=0)  # 数据归一化

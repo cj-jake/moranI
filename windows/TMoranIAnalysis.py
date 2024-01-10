@@ -62,7 +62,7 @@ class TMoranIAnalysis(QDialog):
         yName=self.third_dropdown.currentText()
         value=self.data[valueName]
         coordinates = list(zip(self.data[xName], self.data[yName]))
-        w = knn(coordinates, method=2)
+        w = buildWeightMatrix(coordinates, method=2)
         # 计算 Moran 指数
         data = pd.DataFrame(value)
 

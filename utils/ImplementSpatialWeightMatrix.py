@@ -34,9 +34,9 @@ def data_show(train_data, w):
     plt.show()
 
 
-def knn(tran_data, k=3, method=1):
+def buildWeightMatrix(tran_data, k=3, method=1):
     """
-    knn算法得到空间权重矩阵，可选空间位置或属性值作为计算指标
+    到空间权重矩阵，可选空间位置或属性值作为计算指标
     :param tran_data: 需分类数据，列表
     :param k: 最大邻接数
     :param method: 分类指标，1为一维指标，2为二维指标
@@ -84,9 +84,9 @@ def knn(tran_data, k=3, method=1):
             w[i][n] = 1
     return w
 
-def knnST(tran_data, k=3, method=1,time_Threshold=1.0):
+def STBuildWeightMatrix(tran_data, k=3, method=1, time_Threshold=1.0):
     """
-    knn算法得到空间权重矩阵，可选空间位置或属性值作为计算指标
+    权重矩阵，可选空间位置或属性值作为计算指标
     :param tran_data: 需分类数据，列表  时间
     :param k: 最大邻接数
     :param method: 分类指标，1为一维指标，2为二维指标
@@ -142,10 +142,10 @@ if __name__ == '__main__':
     # tran_data = [random.randint(1, 50) for i in range(11)]
     # for i in tran_data:
     #     print(i)
-    w = knn(tran_data, method=2)
+    w = buildWeightMatrix(tran_data, method=2)
     for i in w:
         print(i)
-    w2=knnST(tran_data,method=2,time_Threshold=1)
+    w2=STBuildWeightMatrix(tran_data, method=2, time_Threshold=1)
     print("w2*********")
     for i in w2:
         print(i)
