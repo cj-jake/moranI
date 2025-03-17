@@ -32,16 +32,17 @@ class MainWindow(QMainWindow):
         # 将文件按钮添加到菜单布局
         menu_layout.addWidget(self.fileButton)
 
+        # 创建并添加模型分析按钮
+        self.modelButton = QPushButton('模型分析', self)
+        self.createModelMenu()  # 创建模型菜单
+        menu_layout.addWidget(self.modelButton)
 
         # 创建并添加数据列操作按钮 - 放在文件按钮之后
         self.column_operations_button = QPushButton("数据列操作", self)
         self.column_operations_button.clicked.connect(self.showColumnOperationsDialog)
         menu_layout.addWidget(self.column_operations_button)
 
-        # 创建并添加模型分析按钮
-        self.modelButton = QPushButton('模型分析', self)
-        self.createModelMenu()  # 创建模型菜单
-        menu_layout.addWidget(self.modelButton)
+
 
         menu_layout.addStretch(1)  # 添加弹性空间，使按钮靠左对齐
         # 将菜单布局添加到主布局
