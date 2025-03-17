@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 import imageio
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QThread
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QComboBox, QPushButton, QTextEdit, QDesktopWidget, \
     QHBoxLayout, QSpinBox, QLineEdit
 
@@ -117,9 +117,9 @@ class STMoranIAnalysis(QDialog):
 
         #设计标题
         ax.set_title('3D local ST z-score')
-        ax.set_xlabel('X-axis')
-        ax.set_ylabel('Y-axis')
-        ax.set_zlabel('Z-axis')
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_zlabel('Z')
         plt.show(block=False)
         # 保存
         current_time = datetime.now()

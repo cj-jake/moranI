@@ -1,7 +1,7 @@
 import sys
 import pandas as pd
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QFileDialog, QTableWidget, \
-    QTableWidgetItem, QWidget, QMessageBox, QHBoxLayout, QDesktopWidget, QDialog, QAction
+    QTableWidgetItem, QWidget, QMessageBox, QHBoxLayout, QDesktopWidget, QDialog, QAction, QMenu, QTextEdit
 from windows.ColumnOperationsDialog import ColumnOperationsDialog
 from windows.MoranIAnalysis import MoranIAnalysis
 from windows.TMoranIAnalysis import TMoranIAnalysis
@@ -18,32 +18,12 @@ class MainWindow(QMainWindow):
         self.setGeometry(0, 0, 900, 900)
         self.centerOnScreen()
         self.createMenuBar()
-
         layout = QVBoxLayout()
-        # 创建一个水平布局来放置上传、清空和保存按钮
-        button_layout1 = QHBoxLayout()
-
-        self.upload_button = QPushButton("上传数据", self)
-        self.upload_button.clicked.connect(self.uploadData)
-        button_layout1.addWidget(self.upload_button)
-
-        self.clear_button = QPushButton("清空数据", self)
-        self.clear_button.clicked.connect(self.clearData)
-        button_layout1.addWidget(self.clear_button)
-
-        self.save_button = QPushButton("保存数据", self)
-        self.save_button.clicked.connect(self.saveData)
-        button_layout1.addWidget(self.save_button)
-
-        # 将水平布局添加到垂直布局中
-        layout.addLayout(button_layout1)
-
         # 创建一个QTableWidget对象，用于展示数据表格
         self.table = QTableWidget()
 
         # 将表格添加到布局中，使其在界面上可见
         layout.addWidget(self.table)
-
 
         # 创建水平布局和两个按钮
         hbox = QHBoxLayout()
@@ -101,6 +81,10 @@ class MainWindow(QMainWindow):
         clearAction = QAction('清空数据', self)
         clearAction.triggered.connect(self.clearData)
         fileMenu.addAction(clearAction)
+
+
+
+
     def uploadData(self):
         file_dialog = QFileDialog(self)
         file_path, _ = file_dialog.getOpenFileName(self, "选择文件", ".",

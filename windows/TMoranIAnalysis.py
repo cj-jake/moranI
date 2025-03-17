@@ -98,9 +98,9 @@ class TMoranIAnalysis(QDialog):
 
         # 设计标题
         ax.set_title('3D local T z-score')
-        ax.set_xlabel('X-axis')
-        ax.set_ylabel('Y-axis')
-        ax.set_zlabel('Z-axis')
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_zlabel('Z')
         plt.show(block=False)
         # 保存
         current_time = datetime.now()
