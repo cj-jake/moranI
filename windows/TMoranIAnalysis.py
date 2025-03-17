@@ -98,10 +98,19 @@ class TMoranIAnalysis(QDialog):
 
         # 设计标题
         ax.set_title('3D local T z-score')
-        ax.set_xlabel('X-axis')
-        ax.set_ylabel('Y-axis')
-        ax.set_zlabel('Z-axis')
-        plt.show(block=False)
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_zlabel('Z')
+        # 修改为:
+        try:
+            plt.show(block=False)
+        except AttributeError:
+            # 在发生AttributeError时使用备选方法
+            plt.savefig('moran_i_plot.png')
+            # 可选：显示保存的图片
+            from PIL import Image
+            img = Image.open('moran_i_plot.png')
+            img.show()
         # 保存
         current_time = datetime.now()
         year = current_time.year

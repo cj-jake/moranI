@@ -1,7 +1,7 @@
 import sys
 import pandas as pd
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QFileDialog, QTableWidget, \
-    QTableWidgetItem, QWidget, QMessageBox, QHBoxLayout, QDesktopWidget, QDialog, QAction
+    QTableWidgetItem, QWidget, QMessageBox, QHBoxLayout, QDesktopWidget, QDialog, QAction, QMenu
 from windows.ColumnOperationsDialog import ColumnOperationsDialog
 from windows.MoranIAnalysis import MoranIAnalysis
 from windows.TMoranIAnalysis import TMoranIAnalysis
@@ -17,64 +17,42 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("主用户界面")
         self.setGeometry(0, 0, 900, 900)
         self.centerOnScreen()
-        self.createMenuBar()
+
 
         layout = QVBoxLayout()
-        # 创建一个水平布局来放置上传、清空和保存按钮
-        button_layout1 = QHBoxLayout()
 
-        self.upload_button = QPushButton("上传数据", self)
-        self.upload_button.clicked.connect(self.uploadData)
-        button_layout1.addWidget(self.upload_button)
+        # 创建一个水平布局用于放置文件按钮
+        menu_layout = QHBoxLayout()
+        # 设置布局中部件之间的间距为更小的值（默认是6像素）
+        menu_layout.setSpacing(2)  # 减小按钮之间的间距
 
-        self.clear_button = QPushButton("清空数据", self)
-        self.clear_button.clicked.connect(self.clearData)
-        button_layout1.addWidget(self.clear_button)
+        # 创建并添加文件按钮
+        self.fileButton = QPushButton('文件', self)
+        self.createMenuBar()
+        # 将文件按钮添加到菜单布局
+        menu_layout.addWidget(self.fileButton)
 
-        self.save_button = QPushButton("保存数据", self)
-        self.save_button.clicked.connect(self.saveData)
-        button_layout1.addWidget(self.save_button)
 
-        # 将水平布局添加到垂直布局中
-        layout.addLayout(button_layout1)
+        # 创建并添加数据列操作按钮 - 放在文件按钮之后
+        self.column_operations_button = QPushButton("数据列操作", self)
+        self.column_operations_button.clicked.connect(self.showColumnOperationsDialog)
+        menu_layout.addWidget(self.column_operations_button)
+
+        # 创建并添加模型分析按钮
+        self.modelButton = QPushButton('模型分析', self)
+        self.createModelMenu()  # 创建模型菜单
+        menu_layout.addWidget(self.modelButton)
+
+        menu_layout.addStretch(1)  # 添加弹性空间，使按钮靠左对齐
+        # 将菜单布局添加到主布局
+        layout.addLayout(menu_layout)
+
 
         # 创建一个QTableWidget对象，用于展示数据表格
         self.table = QTableWidget()
-
         # 将表格添加到布局中，使其在界面上可见
         layout.addWidget(self.table)
 
-
-        # 创建水平布局和两个按钮
-        hbox = QHBoxLayout()
-
-
-
-        # 第二个按钮 - 数据列操作
-        self.column_operations_button = QPushButton("数据列操作", self)
-        self.column_operations_button.clicked.connect(self.showColumnOperationsDialog)
-        hbox.addWidget(self.column_operations_button)
-
-        layout.addLayout(hbox)  # 将水平布局添加到主垂直布局
-        # 创建一个水平布局来放置上传、清空和保存按钮
-        button_layout2 = QHBoxLayout()
-
-        models = ["SMoranI_LISA",  "TMoranI_LISA","STMoranI_LISA"]
-
-        self.analysis_window_mapping = {
-            "SMoranI_LISA": MoranIAnalysis,
-            "TMoranI_LISA": TMoranIAnalysis,
-            "STMoranI_LISA": STMoranIAnalysis
-        }
-
-        for model in models:
-            analysis_button = QPushButton(f"{model}模型分析", self)
-            analysis_button.clicked.connect(self.openAnalysisWindow)
-            button_layout2.addWidget(analysis_button)
-
-
-
-        layout.addLayout(button_layout2)
 
 
         # 创建一个QWidget对象作为容器，用于容纳上述的布局
@@ -87,20 +65,48 @@ class MainWindow(QMainWindow):
 
 
     def createMenuBar(self):
-        menubar = self.menuBar()
-        fileMenu = menubar.addMenu('文件')
+        # 创建菜单
+        self.fileMenu = QMenu(self)
 
+        # 添加菜单项 - 上传数据
         uploadAction = QAction('上传数据', self)
         uploadAction.triggered.connect(self.uploadData)
-        fileMenu.addAction(uploadAction)
+        self.fileMenu.addAction(uploadAction)
 
+        # 添加菜单项 - 保存数据
         saveAction = QAction('保存数据', self)
         saveAction.triggered.connect(self.saveData)
-        fileMenu.addAction(saveAction)
+        self.fileMenu.addAction(saveAction)
 
+        # 添加菜单项 - 清空数据
         clearAction = QAction('清空数据', self)
         clearAction.triggered.connect(self.clearData)
-        fileMenu.addAction(clearAction)
+        self.fileMenu.addAction(clearAction)
+
+        # 将菜单关联到按钮
+        self.fileButton.setMenu(self.fileMenu)
+
+    def createModelMenu(self):
+        # 创建菜单
+        self.modelMenu = QMenu(self)
+
+        models = ["SMoranI_LISA", "TMoranI_LISA", "STMoranI_LISA"]
+
+        self.analysis_window_mapping = {
+            "SMoranI_LISA": MoranIAnalysis,
+            "TMoranI_LISA": TMoranIAnalysis,
+            "STMoranI_LISA": STMoranIAnalysis
+        }
+
+        # 为每个模型添加菜单项
+        for model in models:
+            modelAction = QAction(f"{model}模型分析", self)
+            # 使用lambda来传递模型名称
+            modelAction.triggered.connect(lambda checked, m=model: self.openAnalysisWindow(m))
+            self.modelMenu.addAction(modelAction)
+
+        # 将菜单关联到按钮
+        self.modelButton.setMenu(self.modelMenu)
     def uploadData(self):
         file_dialog = QFileDialog(self)
         file_path, _ = file_dialog.getOpenFileName(self, "选择文件", ".",
@@ -192,12 +198,8 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "提示", "请先上传数据！")
 
 
-    def openAnalysisWindow(self):
+    def openAnalysisWindow(self,model):
         if not self.data.empty:
-            sender_button = self.sender()
-            model = sender_button.text().split('模型')[0]
-
-
             analysis_window_class = self.analysis_window_mapping.get(model)
 
             if analysis_window_class:
