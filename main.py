@@ -209,6 +209,7 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "提示", "请先上传数据！")
 
 
+
     def centerOnScreen(self):
         '''屏幕中间显示'''
         qr = self.frameGeometry()
